@@ -1,76 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golden Rose Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
-      body {
-        background-color: lightblue;
-        text-align: center;
-      }
-      
-      .lds-ring {
+  @import url('https://fonts.googleapis.com/css2?family=Handjet:wght@300&display=swap');
+  
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    img {
+      width: 200px;
+    }
+.loading-icon {
+      margin-top: 20px;
+      font-size: 42px;
+      color: gold;
+      font-family: 'Handjet', cursive;
+      text-align: center; /* Center-align the text */
+    }
+    .lds-heart {
   display: inline-block;
   position: relative;
   width: 80px;
   height: 80px;
+  transform: rotate(45deg);
+  transform-origin: 40px 40px;
 }
-.lds-ring div {
-  box-sizing: border-box;
-  display: block;
+.lds-heart div {
+  top: 32px;
+  left: 32px;
   position: absolute;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border: 8px solid #fff;
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #fff transparent transparent transparent;
+  width: 32px;
+  height: 32px;
+  background: #FF00FF;
+  animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-.lds-ring div:nth-child(1) {
-  animation-delay: -0.45s;
+.lds-heart div:after,
+.lds-heart div:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: #FF00FF;
 }
-.lds-ring div:nth-child(2) {
-  animation-delay: -0.3s;
+.lds-heart div:before {
+  left: -24px;
+  border-radius: 50% 0 0 50%;
 }
-.lds-ring div:nth-child(3) {
-  animation-delay: -0.15s;
+.lds-heart div:after {
+  top: -24px;
+  border-radius: 50% 50% 0 0;
 }
-@keyframes lds-ring {
+@keyframes lds-heart {
   0% {
-    transform: rotate(0deg);
+    transform: scale(0.95);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  39% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
   }
   100% {
-    transform: rotate(360deg);
+    transform: scale(0.9);
   }
 }
 
   </style>
 </head>
 <body>
-  <script>
-    const AS_URL_BASE = "https://script.google.com/macros/s/AKfycbyJJYBrErgWCbjGOEIMJINu5so4HPI8sgTOVz0A-t084eeGnlEfkqk4ytSMimMlFlzO/exec";
-    
-    var url = document.location.href;
-    var k = url.substr(url.lastIndexOf("k=")+2);
-    
-    if(k){
-      fetch(AS_URL_BASE+'?k='+k)
-      .then(r => r.text())
-      .then((r) => {
-        console.log(r);
-        //document.write(r);
-        if(r){
-          document.location.replace(r);
-        }
-      })
-      .catch(err => console.log(err))
-    }
-
-  </script>
-  
-  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-  
-  
+  <img src="https://wallpapercave.com/wp/wp9539731.jpg" alt="Golden Rose">
+  <img src="https://loading.io/icon/9bk8rc" alt="Golden Rose">
+  <div class="loading-icon">Conectandote con el Master...</div>
+  <div class="lds-heart"><div></div></div>
 </body>
 </html>
