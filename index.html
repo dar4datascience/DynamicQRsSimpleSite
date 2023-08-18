@@ -87,8 +87,27 @@
   </style>
 </head>
 <body>
+   <script>
+    const AS_URL_BASE = "https://script.google.com/macros/s/AKfycbyJJYBrErgWCbjGOEIMJINu5so4HPI8sgTOVz0A-t084eeGnlEfkqk4ytSMimMlFlzO/exec";
+
+    var url = document.location.href;
+    var k = url.substr(url.lastIndexOf("k=")+2);
+
+    if(k){
+      fetch(AS_URL_BASE+'?k='+k)
+      .then(r => r.text())
+      .then((r) => {
+        console.log(r);
+        //document.write(r);
+        if(r){
+          document.location.replace(r);
+        }
+      })
+      .catch(err => console.log(err))
+    }
+
+  </script>
   <img src="https://wallpapercave.com/wp/wp9539731.jpg" alt="Golden Rose">
-  <img src="https://loading.io/icon/9bk8rc" alt="Golden Rose">
   <div class="loading-icon">Conectandote con el Master...</div>
   <div class="lds-heart"><div></div></div>
 </body>
